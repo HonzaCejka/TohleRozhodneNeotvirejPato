@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ukol2</title>
+</head>
+<script>
+    function vypocitej() {
+        let x = formul.x.value;
+        let y = formul.y.value;    
+        x = parseInt(x);
+        y = parseInt(y);
+        let Znamenko = "";
+        let div = document.getElementById("vysledky");
+        if (formul.znamenko.value == "+") {            
+            div.innerHTML =x+"+"+y+"=" + (x +y);
+        }else if (formul.znamenko.value == "-") {            
+            div.innerHTML =x+"-"+y+"=" + (x -y);
+        }else if (formul.znamenko.value == "*") {            
+            div.innerHTML =x+"*"+y+"=" + (x *y);
+        }else if (formul.znamenko.value == "/") {            
+            if (y!=0&&x!=0) {
+                div.innerHTML =x+"/"+y+"=" + (x /y);
+            }else{
+                div.innerHTML = "nelze delit nulou";
+            }
+        }
+    }
+</script>
+<body onload="vypocitej()">    
+    <div class="nav" >
+        <a href="index.html">Úkol 1</a>
+        <a href="#" id="selected">Úkol 2</a>
+        <a href="ukol3.html">Úkol 3</a>
+    </div>
+    <br>
+    <div>
+        <form action="" name="formul">
+            x: <input type="number" name="x" value="0" onchange="vypocitej()"><br>
+            y: <input name="y" type="number" value="0" onchange="vypocitej()"><br>
+            <input name="znamenko" type="radio" value="+" onchange="vypocitej()" checked> + 
+            <input name="znamenko" type="radio" value="-" onchange="vypocitej()"> - 
+            <input name="znamenko" type="radio" value="*" onchange="vypocitej()"> *             
+            <input name="znamenko" type="radio" value="/" onchange="vypocitej()"> / 
+        </form>
+    </div>        
+    <div id="vysledky">
+
+    </div>
+</body>
+</html>

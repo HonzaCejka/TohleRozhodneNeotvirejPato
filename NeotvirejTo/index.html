@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ukol1</title>
+</head>
+<script>
+    function vypocitej() {
+        let KM = formul.Kilometres.value;
+        let div = document.getElementById("vysledky");
+        let color = "";
+        let textcolor = "";        
+        if (KM<=19) {
+            div.innerHTML = KM +" * 25 ="+KM * 25 + "Kč" ;
+            color = "#34eb43";
+            textcolor = "#000";
+        }else if (KM>=20&&KM<=39) {
+            div.innerHTML = KM +" * 23 ="+KM * 23 + "Kč";
+            color = "#3127e6";
+            textcolor = "#fff";
+        }else if (KM>=40&&KM<=59) {
+            div.innerHTML = KM +" * 20 ="+KM * 20 + "Kč";
+            color = "#9917ad";
+            textcolor = "#fff";
+        }else if(KM>=60){  
+            div.innerHTML = KM +" * 17 ="+KM * 17 + "Kč";
+            color = "#f0800a";
+            textcolor = "#fff";
+        }
+        if (formul.Barva.checked == true) {
+            div.style.backgroundColor = color;
+            div.style.color = textcolor;
+        }else{
+            div.style.backgroundColor = "#fff";
+            div.style.color = "#000";
+        }
+    }
+</script>
+<body onload="vypocitej()">    
+    <div class="nav" >
+        <a href="#" id="selected">Úkol 1</a>
+        <a href="ukol2.html">Úkol 2</a>
+        <a href="ukol3.html">Úkol 3</a>
+    </div>
+    <br>
+    <div>
+        <form action="" name="formul">
+            KM: <input min="0" type="number" name="Kilometres" value="0" onchange="vypocitej()"><br>
+            Barva: <input name="Barva" type="checkbox" onchange="vypocitej()">
+        </form>
+    </div>    
+    <table id="cenik">
+        <tr>
+            <td style="background-color: #34eb43;">0-19Km</td>
+            <td style="background-color: #3127e6;color: #fff;">20-39Km</td>
+            <td style="background-color: #9917ad;color: #fff;">40-59Km</td>
+            <td style="background-color: #f0800a;color: #fff;">60 a více</td>
+        </tr>
+        <tr>
+            <td style="background-color: #34eb43;">25Kč/Km</td>
+            <td style="background-color: #3127e6;color: #fff;">23Kč/Km</td>
+            <td style="background-color: #9917ad;color: #fff;">20Kč/Km</td>
+            <td style="background-color: #f0800a;color: #fff;">17Kč/Km</td>
+        </tr>
+    </table>
+    <div id="vysledky">
+
+    </div>
+</body>
+</html>

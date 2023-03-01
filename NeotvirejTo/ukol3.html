@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ukol3</title>
+</head>
+<script>
+    let pick = 0;
+    function Delete() {
+        document.getElementById("vypocet").innerHTML = "";
+        document.getElementById("imgEdit").src = "";
+        pick = 0;        
+    }
+    function Hvezda() {
+        let meno = formul.jmena.value;
+        document.getElementById("vypocet").innerHTML = meno + " je hvězda";
+        document.getElementById("imgEdit").src = "obr/hvezda.png";
+        pick = 1;
+    }
+    function Pohar() {
+        let meno = formul.jmena.value;
+        document.getElementById("vypocet").innerHTML = meno + " je vítěz";
+        document.getElementById("imgEdit").src = "obr/pohar.jpg";
+        pick = 2;
+    }
+    function smutny() {
+        let meno = formul.jmena.value;
+        document.getElementById("vypocet").innerHTML = meno + " je smutný";
+        document.getElementById("imgEdit").src = "obr/smileBad.png";
+        pick = 3;
+    }
+    function stastny() {
+        let meno = formul.jmena.value;
+        document.getElementById("vypocet").innerHTML = meno + " je šťastný";
+        document.getElementById("imgEdit").src = "obr/smileOk.jpg";
+        pick = 4;
+    }
+    function changename() {
+        switch (pick) {
+            case 0:
+                Delete();
+                break;
+        case 1:
+            Hvezda();
+            break;
+        case 2:
+            Pohar();
+            break;
+        case 3:
+            smutny();
+            break;
+        case 4:
+            stastny();
+            break;
+            default:
+                break;
+        }
+    }
+</script>
+<body>    
+    <div class="nav" >
+        <a href="index.html">Úkol 1</a>
+        <a href="ukol2.html">Úkol 2</a>
+        <a href="#" id="selected">Úkol 3</a>
+    </div>
+    <br>    
+    <div>
+        <table>
+            <td><img src="obr/delete.png" alt="" srcset="" onclick="Delete()"></td>
+            <td><img src="obr/hvezda.png" alt="" srcset="" onclick="Hvezda()"></td>
+            <td><img src="obr/pohar.jpg" alt="" srcset="" onclick="Pohar()"></td>
+            <td><img src="obr/smileBad.png" alt="" srcset="" onclick="smutny()"></td>
+            <td><img src="obr/smileOk.jpg" alt="" srcset="" onclick="stastny()"></td>
+        </table>
+        <form action="" name="formul">
+            <select name="jmena" onchange="changename()">
+                <option value="Dominik">Dominik</option>
+                <option value="Martin">Martin</option>
+                <option value="Pepa">Pepa</option>
+            </select>
+        </form>
+    </div>     
+    <div id="vysledky">
+    <div id="vypocet">
+
+    </div>
+    <img id="imgEdit" src="" alt="" srcset="">
+    </div>   
+</body>
+</html>
